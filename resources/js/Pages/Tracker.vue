@@ -67,12 +67,12 @@ onMounted(() => {
         <div class="max-w-4xl ">
             <div class="flex flex-col items-center justify-center p-12 gap-y-4">
                 <img src="/images/papashanes.png" class="flex justify-center max-h-24"/>
-                <p class="font-black text-3xl">Better Ingredients. Better Code.</p>
+                <p class="font-black text-sm md:text-3xl text-center">Better Ingredients. Better Code.</p>
             </div>
             <div class="flex border-4 border-black rounded-full shadow-xl">
                 <div v-for="(value, key) in props.statuses" :key="key" :class="statusClasses(key, value)">
                     <p class="uppercase font-bold italic text-white drop-shadow text-center">
-                        <span class="block text-3xl font-bold not-italic leading-none">{{ value }}</span>
+                        <span class="block text-sm md:text-3xl font-bold not-italic leading-none">{{ value }}</span>
                     </p>
                 </div>
             </div>
