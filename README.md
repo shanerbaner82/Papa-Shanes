@@ -1,60 +1,55 @@
-<p align="center"><a href="https://papashanes.hostedsitefiles.com" target="_blank"><img src="https://papashanes.hostedsitefiles.com/images/papashanes.png" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://papashanes.hostedsitefiles.com" target="_blank"><img src="https://papashanes.hostedsitefiles.com/images/papashanes.png" width="400" alt="Papa Shane's"></a></p>
 
 
 ## Welcome To Papa Shane's
 ### Better Ingredients. Better Code.
 
-Papa Shane's is a VILT (Vue, Inertia, Laravel, TailwindCSS) stack app built with the purpose to demonstrate how one could build out a pizza order tracking site. The site consists of a Dashboard area where the Papa Shane's crew will manage the status of all of the orders placed by their loyal customers.
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Papa Shane's is a VILT (Vue 3, Inertia, Laravel, TailwindCSS) stack app built with the purpose to demonstrate how one could build out a pizza order tracking site. The site consists of a Dashboard area where the Papa Shane's crew will manage the status of all the orders placed by their loyal customers, and an order tracking page for each order that the hungry and impatient customers can watch to see their order update in real-time.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+In addition to the VILT stack, the following technologies are being used for this app:
+- [Pusher](https://pusher.com/) for the real time web sockets. .
+- Redis for the queue.
+- [Laravel Forge](https://forge.laravel.com) for server maintenance and provisioning
+- [Github](https://github.com)
 
-## Learning Laravel
+## Build the site
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+ - Clone this repo 
+ - Run ```cp .env.local .env```
+ - You will need to add your own [Pusher](https://pusher.com/) keys to the `.env` file.
+ - Run ```composer install```
+ - Run ``php artisan migrate --seed``
+ - Run ```npm install && npm run dev``` if you intend to update any of the CSS or Vue files.
+ - Run ```php artisan queue:listen``` to start the queue listener.
+ - Run ```php artisan serve``` and visit [http://localhost:8000](http://localhost:8000) in your browser.
+ - Alternatively, if you are using something like [Laravel Herd](https://herd.laravel.com), you should be able to navigate to [http://papashanes.test](http://papashanes.test)
+ - You can login with email: `shane@papashanes.com`, password:`papashanes`.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Using the Site
+<img src="https://papashanes.hostedsitefiles.com/images/dashboard.png" width="400" alt="Papa Shane's Dashboard">
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Each grey box is a customer's order, as an employee it is your duty to make each pizza for each order and update the status of each order as you move through the different phases. All new orders are given the "Received" status when the order is first received at Papa Shane's. Each order shows the following information:
+ - Order number
+ - How old the order is
+ - Current status
+ - Delivery method (pickup or delivery)
+ - Total number of items for the order
+ - Each pizza type, size and ingredients selected by the customer
 
-## Laravel Sponsors
+<img src="https://papashanes.hostedsitefiles.com/images/order.png" width="400" alt="Papa Shane's">
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+When you begin working on a new order, select the "In Progress" status for that order and click the big green "Update" button for that order.
 
-### Premium Partners
+Once, the pizzas are built and the order is in the oven, you can update the status to "In the Oven".
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Finally, once all the pizzas are done baking, sliced to perfection and boxed (don't forget the napkins!) you further update the order to "Ready for PICKUP/DELIVERY".
 
-## Contributing
+If you want to see what your customer is seeing you can click the red "TRACK" link at the top of each order in the dashboard. This will open the order tracker in a new tab. As you change the statuses for the orders you will be able to see the tracker update in real time.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<img src="https://papashanes.hostedsitefiles.com/images/tracker.png" width="400" alt="Papa Shane's">
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### NOTE
+The dashboard will only show orders that are not yet ready for pickup or delivery. Additionally, the oldest order will always be first in the list, it is the one "pulsing" to draw more attention to it. If you want to generate more orders to play with the site simply run ```php artisan db:seed --class=OrderSeeder```
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
