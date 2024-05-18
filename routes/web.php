@@ -1,22 +1,15 @@
 <?php
 
+use App\Http\Controllers\OrderManagerController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('/', [OrderManagerController::class, 'index'])->name('dashboard');
+    Route::patch('/orders/{order}/edit', [OrderManagerController::class, 'update'])->name('orders.edit');
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/order/tracker/{order:order_number}', [\App\Http\Controllers\TrackerController::class, 'show'])->name('orders.tracker');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
