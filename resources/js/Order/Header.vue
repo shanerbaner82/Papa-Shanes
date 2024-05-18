@@ -4,7 +4,7 @@
 
 <template>
     <div class="flex items-center justify-between border-b border-black mb-2">
-        <h2 class="font-black">Order: {{ order.order_number }} - {{order.id}}</h2>
+        <h2 class="font-black">Order: {{ order.order_number }}</h2>
         <a target="_blank" :href="route('orders.tracker', {order})" class="font-black text-red-600 flex items-center gap-x-1">
             TRACK
             <sup>
