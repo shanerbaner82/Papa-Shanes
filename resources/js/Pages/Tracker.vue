@@ -32,7 +32,7 @@ const tada = function () {
 }
 
 const statusClasses = function (key, value) {
-    let defaultClasses = 'w-1/4 bg-gradient-to-b flex items-center justify-center h-20 border-r-2  transition-all';
+    let defaultClasses = 'w-1/4 bg-gradient-to-b flex items-center justify-center h-10 md:h-20 border-r-2  transition-all';
 
     if (key === keys[0]) {
         defaultClasses += ' rounded-l-full'
@@ -42,7 +42,7 @@ const statusClasses = function (key, value) {
     }
 
     if (status.value === key) {
-        return `${defaultClasses} from-red-500 to-red-600 scale-125 rounded shadow-lg border-red-800 shadow-2xl z-10`
+        return `${defaultClasses} from-red-500 to-red-600 scale-110 md:scale-125 rounded shadow-lg border-red-800 shadow-2xl z-10`
     }
 
     if (keys.indexOf(key) < keys.indexOf(status.value)) {
@@ -64,19 +64,19 @@ onMounted(() => {
 <template>
     <canvas class="absolute w-screen h-screen inset-0" id="confetti"></canvas>
     <div class="w-screen h-screen grid content-center justify-center">
-        <div class="max-w-4xl ">
+        <div class="max-w-full px-6 md:px-none md:max-w-4xl ">
             <div class="flex flex-col items-center justify-center p-12 gap-y-4">
                 <img src="/images/papashanes.png" class="flex justify-center max-h-24"/>
-                <p class="font-black text-sm md:text-3xl text-center">Better Ingredients. Better Code.</p>
+                <p class="font-black text-base md:text-3xl text-center">Better Ingredients. Better Code.</p>
             </div>
-            <div class="flex border-4 border-black rounded-full shadow-xl">
+            <div class="flex border-2 md:border-4 border-black rounded-full shadow-xl">
                 <div v-for="(value, key) in props.statuses" :key="key" :class="statusClasses(key, value)">
                     <p class="uppercase font-bold italic text-white drop-shadow text-center">
                         <span class="block text-sm md:text-3xl font-bold not-italic leading-none">{{ value }}</span>
                     </p>
                 </div>
             </div>
-            <p class="text-center mt-4 text-xl">Ordered {{ order.created }}</p>
+            <p class="font-black text-base md:text-3xl text-center mt-4">Ordered {{ order.created }}</p>
         </div>
     </div>
 </template>
