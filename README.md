@@ -60,7 +60,7 @@ Once you move an order's status over to "Ready for Pickup/Delivery" it will be r
 Feature tests are complete for each of the endpoints and can be found in `/tests/Feature`. You can run tests by running `./vendor/bin/pest` from the terminal.
 
 ### NOTE
-The dashboard will only show orders that are not yet ready for pickup or delivery. Additionally, the oldest order will always be first in the list, it is the one "pulsing" to draw more attention to it. If you want to generate more orders to play with the site simply run ```php artisan db:seed --class=OrderSeeder```
+The dashboard will only show orders that are not yet ready for pickup or delivery. Additionally, the oldest order will always be first in the list, it is the one "pulsing" to draw more attention to it.
 
 
 
