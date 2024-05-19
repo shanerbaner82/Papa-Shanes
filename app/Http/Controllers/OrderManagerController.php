@@ -34,7 +34,7 @@ class OrderManagerController extends Controller
         OrderItem::truncate();
 
         Order::factory(5)
-            ->has(OrderItem::factory(fake()->numberBetween(2, 5)))
+            ->has(OrderItem::factory(5))
             ->create();
 
         return to_route('dashboard');

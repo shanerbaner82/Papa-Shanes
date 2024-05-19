@@ -41,3 +41,13 @@ test('updating the status fires the event', function () {
     Event::assertDispatched(\App\Events\OrderUpdatedEvent::class);
 
 });
+
+test('user can reseed orders from the dashboard', function () {
+
+    expect(\App\Models\Order::count())->toBe(10);
+
+    $this->post(route('orders.reseed'));
+
+    expect(\App\Models\Order::count())->toBe(5);
+
+});
