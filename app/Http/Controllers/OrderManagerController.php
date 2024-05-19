@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\OrderUpdatedEvent;
+use App\Jobs\UpdateOrder;
 use App\Models\Order;
 
 class OrderManagerController extends Controller
@@ -22,7 +22,7 @@ class OrderManagerController extends Controller
             ])
         );
 
-        OrderUpdatedEvent::dispatch($order->fresh());
+        UpdateOrder::dispatch($order->fresh());
 
         return to_route('dashboard');
     }
