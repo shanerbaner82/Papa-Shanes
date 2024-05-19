@@ -9,6 +9,9 @@ Papa Shane's is a VILT (Vue 3, Inertia, Laravel, TailwindCSS) stack app built wi
 In addition to the VILT stack, the following technologies are being used for this app:
 - [Pusher](https://pusher.com/) for the real time web sockets. .
 - Redis for the queue.
+- [Horizon](https://laravel.com/docs/11.x/horizon) to monitor Redis Jobs.
+- [Pint](https://laravel.com/docs/11.x/pint) for code formatting.
+- [Pest](https://pestphp.com/) testing suite.
 - [Laravel Forge](https://forge.laravel.com) for server maintenance and provisioning
 - [Github](https://github.com)
 
@@ -20,7 +23,7 @@ In addition to the VILT stack, the following technologies are being used for thi
 - Run ```composer install```
 - Run ``php artisan migrate --seed``
 - Run ```npm install && npm run dev``` if you intend to update any of the CSS or Vue files.
-- Run ```php artisan queue:listen``` to start the queue listener.
+- Run ```php artisan horizon``` to start the queue listener.
 - Run ```php artisan serve``` and visit [http://localhost:8000](http://localhost:8000) in your browser.
 - Alternatively, if you are using something like [Laravel Herd](https://herd.laravel.com), you should be able to navigate to [http://papashanes.test](http://papashanes.test)
 - You can login with email: `shane@papashanes.com`, password:`papashanes`.
@@ -48,8 +51,11 @@ If you want to see what your customer is seeing you can click the red "TRACK" li
 
 <img src="https://papashanes.hostedsitefiles.com/images/tracker.png" width="100%" alt="Papa Shane's">
 
+## Tests
+Feature tests are complete for each of the endpoints and can be found in `/tests/Feature`. You can run tests by running `./vendor/bin/pest` from the terminal.
 
 ### NOTE
 The dashboard will only show orders that are not yet ready for pickup or delivery. Additionally, the oldest order will always be first in the list, it is the one "pulsing" to draw more attention to it. If you want to generate more orders to play with the site simply run ```php artisan db:seed --class=OrderSeeder```
+
 
 
