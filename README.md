@@ -4,11 +4,13 @@
 ## Welcome To Papa Shane's
 ### Better Ingredients. Better Code.
 
+#### [CLICK HERE FOR A WORKING HOSTED DEMO](https://papashanes.hostedsitefiles.com)
+
 Papa Shane's is a VILT (Vue 3, Inertia, Laravel, TailwindCSS) stack app built with the purpose to demonstrate how one could build out a pizza order tracking site. The site consists of a Dashboard area where the Papa Shane's crew will manage the status of all the orders placed by their loyal customers, and an order tracking page for each order that the hungry and impatient customers can watch to see their order update in real-time.
 
 In addition to the VILT stack, the following technologies are being used for this app:
 - [Pusher](https://pusher.com/) for the real time web sockets. .
-- Redis for the queue.
+- [Redis](https://redis.io/) for the queue.
 - [Horizon](https://laravel.com/docs/11.x/horizon) to monitor Redis Jobs.
 - [Pint](https://laravel.com/docs/11.x/pint) for code formatting.
 - [Pest](https://pestphp.com/) testing suite.
