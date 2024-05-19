@@ -13,7 +13,7 @@ class OrderItem extends Model
     protected $guarded = ['id'];
 
     protected $casts = [
-        'product_options' => 'array'
+        'product_options' => 'array',
     ];
 
     public function order(): BelongsTo

@@ -19,7 +19,7 @@ class Order extends Model
 
     protected $appends = [
         'created',
-        'time_since'
+        'time_since',
     ];
 
     public function customer(): BelongsTo
@@ -51,5 +51,4 @@ class Order extends Model
     {
         return $this->created_at->diffForHumans();
     }
-
 }

@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Events\OrderUpdatedEvent;
 use App\Models\Order;
-use Illuminate\Http\Request;
 
 class OrderManagerController extends Controller
 {
     public function index()
     {
         return inertia('Dashboard', [
-            'orders' => Order::with('orderItems', 'customer')->pending()->oldestFirst()->get()
+            'orders' => Order::with('orderItems', 'customer')->pending()->oldestFirst()->get(),
         ]);
     }
 
@@ -19,7 +18,7 @@ class OrderManagerController extends Controller
     {
         $order->update(
             request()->validate([
-                'status' => 'required|in:RECEIVED,PROGRESS,OVEN,READY'
+                'status' => 'required|in:RECEIVED,PROGRESS,OVEN,READY',
             ])
         );
 

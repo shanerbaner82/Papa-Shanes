@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(\App\Models\Order::class);
             // Real world scenario would have a Product model, quantity and price
-//            $table->unsignedInteger('price');
-//            $table->unsignedInteger('quantity');
+            //            $table->unsignedInteger('price');
+            //            $table->unsignedInteger('quantity');
             $table->string('product');
             $table->json('product_options');
             $table->timestamps();

@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\OrderItem;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -21,7 +20,7 @@ class OrderFactory extends Factory
         return [
             'customer_id' => User::factory()->create()->id,
             'delivery_method' => fake()->randomElement(['PICKUP', 'DELIVERY']),
-            'created_at' => fake()->dateTimeBetween('-5 days', 'now')
+            'created_at' => fake()->dateTimeBetween('-5 days', 'now'),
         ];
     }
 }

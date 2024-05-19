@@ -19,11 +19,11 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Papa Shane',
             'email' => 'shane@papashanes.com',
-            'password' => Hash::make('papashanes')
+            'password' => Hash::make('papashanes'),
         ]);
 
         $this->call([
-           OrderSeeder::class
+            OrderSeeder::class,
         ]);
     }
 }
