@@ -53,6 +53,9 @@ If you want to see what your customer is seeing you can click the red "TRACK" li
 
 <img src="https://papashanes.hostedsitefiles.com/images/tracker.png" width="100%" alt="Papa Shane's">
 
+### Reseeding & Horizon
+Once you move an order's status over to "Ready for Pickup/Delivery" it will be removed from the dashboard view so workers can continue to work on only what is relevant. If you get low on orders, click the "Reseed Orders" button and 5 more orders will be created for you. If you want to monitor the Horizon jobs click the "Papa Shane" menu dropdown and click the Horizon link.
+
 ## Tests
 Feature tests are complete for each of the endpoints and can be found in `/tests/Feature`. You can run tests by running `./vendor/bin/pest` from the terminal.
 
