@@ -1,1 +1,0 @@
-import{_ as s}from"./_plugin-vue_export-helper-DlAUqK2U.js";import{o,f as a}from"./app-XFY9G1mS.js";const e={},c={alt:"papashanes",src:"/images/papashanes.png",class:"w-64 md:w-full"};function n(t,r){return o(),a("img",c)}const i=s(e,[["render",n]]);export{i as A};
