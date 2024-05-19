@@ -28,7 +28,7 @@ In addition to the VILT stack, the following technologies are being used for thi
 - Run ```php artisan horizon``` to start the queue listener.
 - Run ```php artisan serve``` and visit [http://localhost:8000](http://localhost:8000) in your browser.
 - Alternatively, if you are using something like [Laravel Herd](https://herd.laravel.com), you should be able to navigate to [http://papashanes.test](http://papashanes.test)
-- You can login with email: `shane@papashanes.com`, password:`papashanes`.
+- You can login with email: `admin@tixel.com`, password:`password`.
 
 ## Using the Site
 <img src="https://papashanes.hostedsitefiles.com/images/dashboard.png" width="100%" alt="Papa Shane's">
