@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Jobs\UpdateOrder;
 use App\Models\Order;
+use App\Models\OrderItem;
 
 class OrderManagerController extends Controller
 {
@@ -23,6 +24,18 @@ class OrderManagerController extends Controller
         );
 
         UpdateOrder::dispatch($order->fresh());
+
+        return to_route('dashboard');
+    }
+
+    public function reseed()
+    {
+        Order::truncate();
+        OrderItem::truncate();
+
+        Order::factory(5)
+            ->has(OrderItem::factory(fake()->numberBetween(2, 5)))
+            ->create();
 
         return to_route('dashboard');
     }

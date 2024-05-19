@@ -2,9 +2,11 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import Order from "@/Order/Order.vue";
+import SecondaryButton from "@/Components/SecondaryButton.vue";
+import Reseed from "@/Components/Reseed.vue";
 
 defineProps({
-    orders: Array,
+    orders: Object,
     required: true
 });
 </script>
@@ -18,7 +20,10 @@ defineProps({
         </template>
 
         <div class=" p-6 sm:p-8" >
-            <h3 class="font-bold text-2xl">Pending Orders: <span class="text-red-600">{{orders.length}}</span> - <span class="italic">GET MOVIN'!</span></h3>
+            <div class="flex items-center justify-between">
+                <h3 class="font-bold text-2xl">Pending Orders: <span class="text-red-600">{{orders.length}}</span> - <span class="italic">GET MOVIN'!</span></h3>
+                <Reseed />
+            </div>
             <div class=" mt-4 grid  grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4">
                 <article v-for="order in orders"
                          :key="order.id"
