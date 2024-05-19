@@ -12,7 +12,6 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::get('/order/tracker/{order:order_number}', [\App\Http\Controllers\TrackerController::class, 'show'])->name('orders.tracker');
 
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
