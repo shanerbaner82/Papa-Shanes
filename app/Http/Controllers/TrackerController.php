@@ -15,6 +15,7 @@ class TrackerController extends Controller
             'OVEN' => 'In The Oven',
             'READY' => "Ready for {$order->delivery_method}",
         ];
+
         return inertia('Tracker', ['order' => $order, 'statuses' => $statuses]);
     }
 }
